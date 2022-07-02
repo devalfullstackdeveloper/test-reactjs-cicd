@@ -54,7 +54,6 @@ jobs:
       - name: Compress and Copy New Files to server
         run : |
               cp .htaccess build/
-              cd build/
               sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r test-reactjs-cicd ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
 
       - name: Folder Permission
