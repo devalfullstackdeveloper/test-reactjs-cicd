@@ -55,7 +55,7 @@ jobs:
         run : |
               cp .htaccess build/
               cd build/
-              sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r test-reactjs-cicd ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/test-reactjs-cicd
+              sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r test-reactjs-cicd ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
 
       - name: Folder Permission
         run : sudo sshpass -p ${{ secrets.SSH_PASS }} -v ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /var/www/html && chmod -R 777 test-reactjs-cicd'
