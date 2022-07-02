@@ -1,12 +1,18 @@
-
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-    RewriteEngine On
-# ensure www.
-RewriteCond %{HTTP_HOST} !^www\. [NC] RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-  
-# ensure https
-RewriteCond %{HTTP:X-Forwarded-Proto} !https RewriteCond %{HTTPS} off RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
- </IfModule>
+	RewriteEngine On
+
+ 	# -- Redirection to https (optional):
+	# Please notice: You have to set your base-href attribute correctly:
+	# a) If your app is on the root of the domain, you can just use "/"
+	# b) If not, you need to set "https://" instead of "http://" in your base-href attribute
+	# If you need this, uncomment the next two commands
+	
+	# RewriteCond %{HTTPS} !on
+  	# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+
+	RewriteRule ^.*$ - [NC,L]
+	RewriteRule ^(.*) index.html [NC,L]
+</IfModule>
