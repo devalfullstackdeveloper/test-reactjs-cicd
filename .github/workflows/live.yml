@@ -49,12 +49,12 @@ jobs:
           npm run build
           
       - name: Delete Existing Files
-        run : sudo sshpass -p ${{ secrets.SSH_PASS }} -v ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd /var/www/html && chmod -R 777 test-reactjs-cicd && rm -rf /var/www/html/test-reactjs-cicd'
+        run : sudo sshpass -p ${{ secrets.SSH_PASS }} -v ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'rm -rf /var/www/html/test-reactjs-cicd'
 
       - name: Compress and Copy New Files to server
         run : |
               cp .htaccess build/
-              cd build/
+              mv build test-reactjs-cicd
               sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r test-reactjs-cicd ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
 
       - name: Folder Permission
