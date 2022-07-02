@@ -1,5 +1,6 @@
 {
   "name": "test-reactjs-cicd",
+  "homepage": "/test-reactjs-cicd",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
