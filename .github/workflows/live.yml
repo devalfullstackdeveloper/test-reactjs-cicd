@@ -66,5 +66,5 @@ jobs:
       #- name: Add .htaccess file
       #  run : sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r .htaccess ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/test-reactjs-cicd/
 
-      #- name: Add .htaccess file
+      #- name: Add .htaccess file 
       #  run : sudo sshpass -p ${{ secrets.SSH_PASS }} scp -v -o StrictHostKeyChecking=no -r .htaccess ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/test-reactjs-cicd/
