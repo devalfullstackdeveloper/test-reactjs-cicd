@@ -2,10 +2,16 @@
 function InputTypeText(props) {
     const {
       name,
-      className
+      className,
+      type
     } = props;
+
     return (
-      <input type="text" name={name} className={className}/>
+      <input 
+          type={type} 
+          name={name}
+          className={className}
+          />
     );
   }
   
