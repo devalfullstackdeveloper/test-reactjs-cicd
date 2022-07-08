@@ -1,4 +1,4 @@
-import InputTypeText from "./formBuilder/inputBuilder/InputTypeText";
+import InputTypeText from "./inputBuilder/InputTypeText";
 
 function LoginForm() {
     return (
